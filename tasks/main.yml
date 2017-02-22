@@ -1,0 +1,20 @@
+---
+# Role tasks
+
+- block:
+
+  - include: "{{ ansible_distribution | lower }}.yml"
+
+  - name: setup selinux
+    selinux:
+      state: "{{ selinux_config.mode }}"
+      policy: "{{ selinux_config.policy }}"
+    notify:
+      - reboot
+      - wait
+      - pause
+
+  - name: flush handlers
+    meta: flush_handlers
+
+  tags: selinux

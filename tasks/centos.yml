@@ -1,0 +1,7 @@
+---
+# CentOS specific tasks
+
+- name: install libselinux-python package
+  package:
+    name: libselinux-python
+    state: present
