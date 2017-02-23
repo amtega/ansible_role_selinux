@@ -14,7 +14,8 @@
       - wait
       - pause
 
-  - name: flush handlers
-    meta: flush_handlers
+  - meta: flush_handlers
 
-  tags: selinux
+  tags:
+    - role::selinux
+    - role::selinux::configure

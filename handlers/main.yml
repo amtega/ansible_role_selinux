@@ -2,14 +2,16 @@
 # Role handlers
 
 - name: reboot
-  command: shutdown -r +2 "Ansible selinux role triggered a reboot"
-  async: 120
+  command: shutdown -r +1 'Ansible selinux role triggered a reboot'
+  changed_when: true
+  async: 30
   poll: 10
 
 - name: wait
   wait_for:
     host: "{{ inventory_hostname }}"
     state: started
+    port: "{{ selinux_config.wait_port | default(22) }}"
     delay: 10
     timeout: "{{ selinux_config.wait_timeout | default(300) }}"
   delegate_to: localhost
