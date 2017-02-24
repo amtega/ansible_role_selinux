@@ -1,2 +1,21 @@
 ---
 # Role variables
+
+selinux_packages:
+  centos:
+    - libselinux
+    - libselinux-python
+    - libselinux-utils
+    - selinux-policy
+    - selinux-policy-targeted
+    - selinux-policy-doc
+    - rpm-plugin-selinux
+
+  rhel:
+    - libselinux
+    - libselinux-python
+    - libselinux-utils
+    - selinux-policy
+    - selinux-policy-targeted
+    - selinux-policy-doc
+    - rpm-plugin-selinux
