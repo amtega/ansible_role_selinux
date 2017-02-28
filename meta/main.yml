@@ -1,2 +1,5 @@
 ---
 # Role dependencies
+
+dependencies:
+  - { role: gnu_linux, tags: ["role::selinux", "role::selinux::configure"] }

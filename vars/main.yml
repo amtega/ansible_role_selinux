@@ -9,7 +9,6 @@ selinux_packages:
     - selinux-policy
     - selinux-policy-targeted
     - selinux-policy-doc
-    - rpm-plugin-selinux
 
   rhel:
     - libselinux
@@ -18,4 +17,3 @@ selinux_packages:
     - selinux-policy
     - selinux-policy-targeted
     - selinux-policy-doc
-    - rpm-plugin-selinux
