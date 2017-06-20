@@ -1,0 +1,11 @@
+---
+# Role tasks
+
+- name: install selinux packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ selinux_packages[ansible_distribution | lower] }}"
+  tags:
+    - role::selinux
+    - role::selinux::packages

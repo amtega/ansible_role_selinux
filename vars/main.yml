@@ -1,7 +1,17 @@
 ---
 # Role variables
 
+# Packages to install for each supported distribution
+
 selinux_packages:
+  fedora:
+    - libselinux
+    - libselinux-python
+    - libselinux-utils
+    - selinux-policy
+    - selinux-policy-targeted
+    - selinux-policy-doc
+
   centos:
     - libselinux
     - libselinux-python
