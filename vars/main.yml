@@ -4,6 +4,7 @@
 # Packages to install for each supported distribution
 
 selinux_packages:
+
   fedora:
     - libselinux
     - libselinux-python

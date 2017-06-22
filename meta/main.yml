@@ -20,3 +20,7 @@ galaxy_info:
     - selinux
 
 dependencies:
+  - role: gnu_linux
+    tags:
+      - role::selinux
+      - role::selinux::configure

@@ -1,27 +1,16 @@
 ---
 # Role tasks
 
-- name: install selinux packages
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ selinux_packages[ansible_distribution | lower] }}"
+- name: install selinux
+  include: install.yml
+  static: false
   tags:
     - role::selinux
-    - role::selinux::packages
+    - role::selinux::install
 
-- block:
-
-  - name: setup selinux
-    selinux:
-      state: "{{ selinux_config.mode }}"
-      policy: "{{ selinux_config.policy }}"
-    notify:
-      - reboot
-      - wait
-
-  - meta: flush_handlers
-
+- name: configure selinux
+  include: configure.yml
+  static: false
   tags:
     - role::selinux
     - role::selinux::configure

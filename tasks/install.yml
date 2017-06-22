@@ -1,5 +1,5 @@
 ---
-# Role tasks
+# Install tasks
 
 - name: install selinux packages
   package:
@@ -8,4 +8,5 @@
   with_items: "{{ selinux_packages[ansible_distribution | lower] }}"
   tags:
     - role::selinux
-    - role::selinux::packages
+    - role::selinux::install
+    - role::selinux::install::packages
