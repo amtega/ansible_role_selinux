@@ -18,6 +18,7 @@ galaxy_info:
   galaxy_tags:
     - system
     - selinux
+    - security
 
 dependencies:
   - role: gnu_linux
