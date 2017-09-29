@@ -2,15 +2,13 @@
 # Role tasks
 
 - name: install selinux
-  include: install.yml
-  static: false
+  include_tasks: install.yml
   tags:
     - role::selinux
     - role::selinux::install
 
 - name: configure selinux
-  include: configure.yml
-  static: false
+  include_tasks: configure.yml
   tags:
     - role::selinux
     - role::selinux::configure

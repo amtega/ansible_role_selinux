@@ -12,3 +12,7 @@
 ## 2017-06-26
 
 - Removed idempotence tests because SELinux cannot be enabled in a real way inside a docker container.
+
+## 2017-09-29
+
+- Updated documentation.
