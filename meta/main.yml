@@ -3,25 +3,26 @@
 
 galaxy_info:
   author: Juan Antonio Valiño García
-  description: Computer Science Engineer
-  company: Amtega - Xunta de Galicia
-  license: license not defined
-  min_ansible_version: 2.3
+  description: Setup selinux
+  company: AMTEGA - Xunta de Galicia
+  license: GPLv3 or EUPL
+  min_ansible_version: 2.4
   platforms:
   - name: Fedora
     versions:
-    - 25
+      - 25
+      - 26
   - name: EL
     versions:
-    - 6
-    - 7
+      - 6
+      - 7
   galaxy_tags:
     - system
     - selinux
     - security
 
 dependencies:
-  - role: gnu_linux
+  - role: amtega.gnu_linux
     tags:
       - role::selinux
       - role::selinux::configure
