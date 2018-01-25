@@ -2,16 +2,15 @@
 # Configure tasks
 
 - block:
-  - name: configure selinux
-    selinux:
-      state: "{{ selinux_mode }}"
-      policy: "{{ selinux_policy }}"
-    notify:
-      - reboot host
-      - wait host
+    - name: configure selinux
+      selinux:
+        state: "{{ selinux_mode }}"
+        policy: "{{ selinux_policy }}"
+      notify:
+        - reboot host
+        - wait host
 
-  - meta: flush_handlers
-
+    - meta: flush_handlers
   tags:
     - role::selinux
     - role::selinux::configure

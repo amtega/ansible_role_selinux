@@ -2,14 +2,14 @@
 # Tasks for tesing role
 
 # SELinux cannot be enabled inside a docker container because it appears
-# disabled every time. So, this role cannot be fully tested with docker
-# as the idempotence need to be disabled.
+# disabled every time. So, this role cannot be fully tested with docker,
+# so the idempotence need to be disabled.
 
 - name: run idempotence test
   hosts: localhost
   roles:
-    - role: docker_presets
-    - role: docker_sandbox
+    - role: amtega.docker_presets
+    - role: amtega.docker_sandbox
       docker_sandbox_state: started
       docker_sandbox_idempotence_test: false
       docker_provisioner_container_privileged: true
@@ -17,12 +17,12 @@
 - name: test selinux role
   hosts: docker_sandbox_containers
   roles:
-    - selinux
+    - amtega.selinux
   tags:
     - idempotence
 
 - name: cleanup docker docker sandbox
   hosts: localhost
   roles:
-    - role: docker_sandbox
+    - role: amtega.docker_sandbox
       docker_sandbox_state: absent
