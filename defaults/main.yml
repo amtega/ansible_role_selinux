@@ -1,7 +1,8 @@
 ---
 # Role default lower priority variables
 
-# SELinux mode can be enforcing, permissive or disabled
+# SELinux mode can be enforcing, permissive, disabled or unchanged (if you
+# don't want to alter current status)
 
 selinux_mode: permissive
 

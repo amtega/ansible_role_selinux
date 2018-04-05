@@ -11,7 +11,7 @@
     - role: amtega.docker_presets
     - role: amtega.docker_sandbox
       docker_sandbox_state: started
-      docker_sandbox_idempotence_test: false
+      # docker_sandbox_idempotence_test: false
       docker_provisioner_container_privileged: true
   tags:
     - sandbox
@@ -19,7 +19,8 @@
 - name: test selinux role
   hosts: docker_sandbox_containers
   roles:
-    - amtega.selinux
+    - role: amtega.selinux
+      selinux_mode: unchanged
   tags:
     - idempotence
 
