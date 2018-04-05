@@ -1,5 +1,5 @@
 ---
-# Tasks for tesing role
+# Tasks for testing role
 
 # SELinux cannot be enabled inside a docker container because it appears
 # disabled every time. So, this role cannot be fully tested with docker,
@@ -13,6 +13,8 @@
       docker_sandbox_state: started
       docker_sandbox_idempotence_test: false
       docker_provisioner_container_privileged: true
+  tags:
+    - sandbox
 
 - name: test selinux role
   hosts: docker_sandbox_containers
@@ -26,3 +28,5 @@
   roles:
     - role: amtega.docker_sandbox
       docker_sandbox_state: absent
+  tags:
+    - sandbox
