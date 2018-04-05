@@ -6,6 +6,7 @@
       selinux:
         state: "{{ selinux_mode }}"
         policy: "{{ selinux_policy }}"
+      when: selinux_mode != "unchanged"
       notify:
         - reboot host
         - wait host
