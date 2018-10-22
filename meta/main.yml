@@ -2,6 +2,7 @@
 # Role dependencies
 
 galaxy_info:
+  role_name: selinux
   author: Juan Antonio Valiño García
   description: Setup selinux
   company: AMTEGA - Xunta de Galicia
