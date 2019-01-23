@@ -4,7 +4,7 @@
 # SELinux mode can be enforcing, permissive, disabled or unchanged (if you
 # don't want to alter current status)
 
-selinux_mode: permissive
+selinux_mode: enforcing
 
 # SELinux policy can be targeted, minimum or mls
 

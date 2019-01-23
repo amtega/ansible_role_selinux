@@ -9,20 +9,38 @@ galaxy_info:
   license: GPLv3 or EUPL
   min_ansible_version: 2.7
   platforms:
-  - name: Fedora
-    versions:
-      - 27
-      - 28
-  - name: EL
-    versions:
-      - 6
-      - 7
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - 27
+        - 28
   galaxy_tags:
     - system
     - selinux
     - security
 
 dependencies:
+  - role: amtega.check_platform
+    check_platform_distributions:
+      centos: 6
+      debian: 9
+      fedora: 27
+      rhel: 6
+
+  - role: amtega.packages
+    packages_os:
+      all:
+        all:
+          libselinux: present
+          libselinux-python: present
+          libselinux-utils: present
+          selinux-policy: present
+          selinux-policy-targeted: present
+          selinux-policy-doc: present
+
   - role: amtega.reboot
     tags:
       - role::selinux
