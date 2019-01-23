@@ -12,7 +12,9 @@ A list of all the default variables for this role is available in `defaults/main
 
 ## Dependencies
 
-[amtega.reboot](https://galaxy.ansible.com/amtega/reboot)
+- [amtega.check_platform](https://galaxy.ansible.com/amtega/check_platform)
+- [amtega.packages](https://galaxy.ansible.com/amtega/packages)
+- [amtega.reboot](https://galaxy.ansible.com/amtega/reboot)
 
 ## Example Playbook
 

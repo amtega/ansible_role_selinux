@@ -1,14 +1,13 @@
 ---
 # Role tasks
 
-- name: install selinux
-  include_tasks: install.yml
-  tags:
-    - role::selinux
-    - role::selinux::install
-
 - name: configure selinux
-  include_tasks: configure.yml
+  selinux:
+    state: "{{ selinux_mode }}"
+    policy: "{{ selinux_policy }}"
+  when: selinux_mode != "unchanged"
+  notify:
+    - reboot host
+    - wait host
   tags:
     - role::selinux
-    - role::selinux::configure
