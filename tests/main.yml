@@ -4,7 +4,7 @@
 # SELinux cannot be enabled inside a docker container because it appears
 # disabled every time.
 
-- name: configure docker sandbox environment
+- name: Configure docker sandbox environment
   hosts: localhost
   roles:
     - role: amtega.docker_presets
@@ -16,7 +16,7 @@
   tags:
     - sandbox
 
-- name: run idempotence test
+- name: Run idempotence test
   hosts: localhost
   roles:
     - role: amtega.docker_sandbox
@@ -25,7 +25,7 @@
   tags:
     - sandbox
 
-- name: test selinux role
+- name: Test selinux role
   hosts: docker_sandbox_containers
   roles:
     - role: amtega.selinux
@@ -33,7 +33,7 @@
   tags:
     - idempotence
 
-- name: cleanup docker docker sandbox
+- name: Cleanup docker docker sandbox
   hosts: localhost
   roles:
     - role: amtega.docker_sandbox

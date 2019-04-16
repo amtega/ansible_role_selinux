@@ -1,7 +1,7 @@
 ---
 # Role tasks
 
-- name: configure selinux
+- name: Configure SELinux
   selinux:
     state: "{{ selinux_mode }}"
     policy: "{{ selinux_policy }}"
