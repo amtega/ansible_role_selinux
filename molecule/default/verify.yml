@@ -1,0 +1,11 @@
+---
+
+- name: Verify
+  hosts: molecule_hosts
+  become: yes
+  roles:
+    - amtega.selinux
+  tasks:
+    - name: Assert that selinux mode is ok
+      assert:
+        that: ansible_facts.selinux.config_mode == "enforcing"
