@@ -7,16 +7,16 @@ galaxy_info:
   description: Setup selinux
   company: AMTEGA - Xunta de Galicia
   license: GPLv3 or EUPL
-  min_ansible_version: 2.9
+  min_ansible_version: 2.10
   platforms:
     - name: EL
       versions:
-        - 6
         - 7
+        - 8
     - name: Fedora
       versions:
-        - 29
-        - 30
+        - 32
+        - 33
   galaxy_tags:
     - system
     - selinux
@@ -26,9 +26,9 @@ dependencies:
   - role: amtega.check_platform
     vars:
       check_platform_distributions:
-        centos: 6
-        fedora: 29
-        redhat: 6
+        centos: 7
+        fedora: 32
+        redhat: 8
 
   - role: amtega.packages
     vars:
@@ -36,16 +36,32 @@ dependencies:
         all:
           all:
             libselinux: present
-            libselinux-python: present
             libselinux-utils: present
+            policycoreutils: present
             selinux-policy: present
-            selinux-policy-targeted: present
+            selinux-policy-devel: present
             selinux-policy-doc: present
-    tags:
-      - role::selinux
-      - role::selinux::install
+            selinux-policy-targeted: present            
+            setroubleshoot-server: present
+        centos:
+          7:
+            libselinux-python: present
+            policycoreutils-python: present
+          8:
+            libselinux-python3: present
+            policycoreutils-python3: present
+
+        fedora:
+          all:
+            libselinux-python3: present
+            policycoreutils-python3: present
+
+        redhat:
+          7:
+            libselinux-python: present
+            policycoreutils-python: present
+          8:
+            libselinux-python3: present
+            policycoreutils-python3: present
 
   - role: amtega.reboot
-    tags:
-      - role::selinux
-      - role::selinux::configure
