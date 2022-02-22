@@ -44,7 +44,6 @@ dependencies:
             selinux-policy-doc: present
             selinux-policy-targeted: present
             setroubleshoot-server: present
-        centos:
           7:
             libselinux-python: present
             libselinux-python3: present
@@ -52,18 +51,8 @@ dependencies:
           8:
             libselinux-python3: present
             policycoreutils-python3: present
-
         fedora:
           all:
-            libselinux-python3: present
-            policycoreutils-python3: present
-
-        redhat:
-          7:
-            libselinux-python: present
-            libselinux-python3: present
-            policycoreutils-python: present
-          8:
             libselinux-python3: present
             policycoreutils-python3: present
 
