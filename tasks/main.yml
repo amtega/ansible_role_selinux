@@ -2,7 +2,7 @@
 # Role tasks
 
 - name: Configure SELinux
-  selinux:
+  ansible.posix.selinux:
     state: "{{ selinux_mode }}"
     policy: "{{ selinux_policy }}"
   when: selinux_mode != "unchanged"
